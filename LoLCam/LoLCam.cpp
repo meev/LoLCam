@@ -14,7 +14,7 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	system("MODE 50,21");
+	system("MODE 50,16");
 	printf("Awaiting League of Legends Processor...\n"); while(!pID) { pID = GetProcId(LoL);Sleep(100);pID2 = GetProcId("LoLCam.exe");Sleep(100); }
 	printf("  League of Legends process found!\n");
 	printf("\nProcess ID Found\n  Process ID: %d\n", pID);
@@ -131,24 +131,7 @@ void selectplus()
 		menu();
 	}
 	else if(heightmenu == 4)
-	{
-		activity = "First person - Not developed yet.";
-		menu();
-	}
-	else if(heightmenu == 5)
-	{
-		activity = "Third person - Not developed yet.";
-		menu();
-	}
-	else if(heightmenu == 6)
-	{
-		activity = "Free cam - Not developed yet.";
-		menu();
-	}
-	else if(heightmenu == 7)
-	{
 		RESET();
-	}
 }
 
 
@@ -199,21 +182,6 @@ void selectminus()
 		menu();
 	}
 	else if(heightmenu == 4)
-	{
-		activity = "First person - Not developed yet.";
-		menu();
-	}
-	else if(heightmenu == 5)
-	{
-		activity = "Third person - Not developed yet.";
-		menu();
-	}
-	else if(heightmenu == 6)
-	{
-		activity = "Free cam - Not developed yet.";
-		menu();
-	}
-	else if(heightmenu == 7)
 		RESET();
 }
 
@@ -236,12 +204,8 @@ void menu()
 	printf("    Y Rotation speed - %g %s\n", YSpeed*10, menuheight[1]);
 	printf("    X Stop/Start acceleration - %g %s\n", XAccel/10, menuheight[2]);
 	printf("    Y Stop/Start acceleration - %g %s\n", YAccel/10, menuheight[3]);
-	printf("\n  [Modes]\n");
-	printf("    Not developed - First person %s\n", menuheight[4]);
-	printf("    Not developed - Third person %s\n", menuheight[5]);
-	printf("    Not developed - Free cam %s\n", menuheight[6]);
 	printf("\n  [Controls]\n");
-	printf("    F8 - Reset everything %s\n", menuheight[7]);
+	printf("    F8 - Reset everything %s\n", menuheight[4]);
 	printf("\n  [Values]\n");
 	printf("    X Angle: %g\n", ReadMemFloat(XANG));
 	printf("    Y Angle: %g\n", ReadMemFloat(YANG));

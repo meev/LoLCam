@@ -58,7 +58,7 @@
 	void prev();
 	void RESET();
 	int heightmenu = 0; //where the menu starts when opening program
-	int maxmenu = 7; //maxmenu items minus 1 because it starts at 0
+	int maxmenu = 4; //maxmenu items minus 1 because it starts at 0
 	int minmenu = 0; //minmenu items should always be 0
 	int i = 0; //for the forloop
 	char const *menuheight[] =
@@ -66,10 +66,6 @@
 		"1",
 		"2",
 		"3",
-		"4",
-		"5",
-		"6",
-		"7"
 	};// add for more menu items remember to put 1 more in maxmenu
 
 	//THREADS
