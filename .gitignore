@@ -1,0 +1,11 @@
+# Ignore Compiler Artifacts
+Debug/
+Release/
+
+# Ignore User-Level IDE Files
+*.suo
+*.user
+
+# Ignore Code Searching Database (Generated Automatically)
+*.sdf
+*.opensdf
