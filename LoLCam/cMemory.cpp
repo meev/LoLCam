@@ -36,8 +36,8 @@ Memory::Memory(const char *lpModuleName, LPSTR ModuleName)
 	if(offset(ModuleBase, ModuleSize) == 0)
 		MessageBox(NULL, "Error: 4 - Sig scanner", NULL, NULL);
 
-	XANG = LPVOID(offset(ModuleBase, ModuleSize));
-	YANG = LPVOID(offset(ModuleBase, ModuleSize)-0x4);
+	XANG = LPVOID(offset(ModuleBase, ModuleSize) + 0x4);
+	YANG = LPVOID(offset(ModuleBase, ModuleSize));
 }
 
 bool Memory::bDataCompare(const BYTE* pData, const BYTE* bMask, const char* szMask)
@@ -154,9 +154,9 @@ DWORD Memory::GetProcId(const char* ProcName)
 DWORD Memory::offset(DWORD ModuleBase, DWORD ModuleSize)
 {
 	DWORD ADDRESS;
-	PBYTE YAngle_sig = (PBYTE)"\xD9\x05\x00\x00\x00\x00\xD8\x25\x00\x00\x00\x00";
-	char *YAngle_masks = "xx????xx????";
-	DWORD YAngle = FindPattern(g_hProcess, ModuleBase, ModuleSize, YAngle_sig, YAngle_masks);
-	ReadProcessMemory(g_hProcess, LPCVOID(YAngle+0x2), &ADDRESS, sizeof(DWORD), NULL);
+	PBYTE XAngle_sig = (PBYTE)"\xD9\x05\x00\x00\x00\x00\x8D\x45\x00\x83\xC4\x00";
+	char *XAngle_masks = "xx????xx?xx?";
+	DWORD XAngle = FindPattern(g_hProcess, ModuleBase, ModuleSize, XAngle_sig, XAngle_masks);
+	ReadProcessMemory(g_hProcess, LPCVOID(XAngle+0x2), &ADDRESS, sizeof(DWORD), NULL);
 	return ADDRESS;
 }
